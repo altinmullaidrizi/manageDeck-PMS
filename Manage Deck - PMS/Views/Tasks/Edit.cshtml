@@ -1,0 +1,100 @@
+﻿@model Manage_Deck___PMS.Models.Task
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="tab-pane fade" id="todo-add" role="tabpanel" style="opacity: 1; padding: 40px 100px">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Add Todo</h3>
+            <div class="card-options ">
+                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+            </div>
+        </div>
+
+
+        <div class="row" style="padding: 20px">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+
+
+                    <div class="form-group row">
+                        <label asp-for="TaskName" class="col-md-3 col-form-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="TaskName" type="text" class="form-control">
+                        </div>
+                        <span asp-validation-for="TaskName" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label asp-for="TaskDescription" class="col-md-3 col-form-label"></label>
+                        <div class="col-md-7">
+                            <input asp-for="TaskDescription" type="text" class="form-control">
+                        </div>
+                        <span asp-validation-for="TaskDescription" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label asp-for="Label" class="col-md-3 col-form-label"></label>
+                        <div class="col-md-7">
+                            <select asp-for="Label" asp-items="Html.GetEnumSelectList<LabelType>()" class="form-control show-tick">
+                                <option selected="selected" value="">Please select</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="Label" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label asp-for="DueDate" class="control-label"></label>
+                        <input asp-for="DueDate" class="form-control" />
+                        <span asp-validation-for="DueDate" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Completed" /> @Html.DisplayNameFor(model => model.Completed)
+                        </label>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label asp-for="Assignee" class="control-label"></label>
+                        <input asp-for="Assignee" class="form-control" />
+                        <span asp-validation-for="Assignee" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group row">
+                        <label asp-for="Reporter" class="control-label"></label>
+                        <input asp-for="Reporter" class="form-control" />
+                        <span asp-validation-for="Reporter" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group row" style="display: none">
+                        <label asp-for="ProjectId" class="control-label"></label>
+                        <input asp-for="ProjectId" class="form-control" />
+                        <span asp-validation-for="ProjectId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

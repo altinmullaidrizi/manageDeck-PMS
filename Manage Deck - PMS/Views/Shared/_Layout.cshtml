@@ -1,0 +1,122 @@
+﻿
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <title>@ViewData["Title"] - Manage Deck</title>
+
+    <!-- Bootstrap Core and vandor -->
+    <script src="https://use.fontawesome.com/76aea54f66.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="~/theme/assets/plugins/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Plugins css -->
+    <link rel="stylesheet" href="~/theme/assets/plugins/charts-c3/c3.min.css" />
+
+    <!-- Core css -->
+    <link rel="stylesheet" href="~/theme/assets/css/main.css" />
+    <link rel="stylesheet" href="~/theme/assets/css/theme1.css" />
+</head>
+
+<body class="font-montserrat sidebar_dark">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+        </div>
+    </div>
+
+    <div id="main_content">
+
+        <div id="header_top" class="header_top dark">
+            <div class="container">
+                <div class="hleft">
+                    <a class="header-brand" asp-controller="Home" asp-action="Index"><i class="fa fa-soccer-ball-o brand-logo"></i></a>
+                    <div class="dropdown">
+                        <a class="nav-link icon" asp-controller="Projects" asp-action="Index"><i class="fa fa-dashboard"></i></a>
+                        <a class="nav-link icon" asp-controller="Tasks" asp-action="Index"><i class="fa fa-list-ol"></i></a>
+                        <a class="nav-link icon" asp-controller="Role" asp-action="Index"><i class="fa fa-user"></i></a>
+                        <a class="nav-link icon" asp-controller="Checklists" asp-action="Index"><i class="fa fa-check-square-o"></i></a>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="page" style="left: 60px; width: calc(100% - 60px)">
+            <div id="page_top" class="section-body top_dark">
+                <div class="container-fluid">
+                    <div class="page-header">
+                        <div class="left">
+                            <h1 class="page-title">ManageDeck</h1>
+                        </div>
+                        <div class="right">
+                            @*<div class="input-icon xs-hide mr-4">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-icon-addon"><i class="fa fa-search"></i></span>
+                        </div>*@
+                            <div class="notification d-flex">
+                                <div class="dropdown d-flex">
+                                    <a class="nav-link icon d-none d-md-flex btn btn-default btn-icon ml-2" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                        <partial name="_LoginPartial" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            @* Header END *@
+
+            @RenderBody()
+
+            @* Footer START *@
+
+            <div class="section-body">
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <a href="templateshub.net">Manage Deck</a>
+                            </div>
+                            <div class="col-md-6 col-sm-12 text-md-right">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item"><a href="doc/index.html">Documentation</a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+    </div>
+
+
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>*@
+
+    <script src="~/theme/assets/bundles/lib.vendor.bundle.js"></script>
+
+    <script src="~/theme/assets/bundles/apexcharts.bundle.js"></script>
+    <script src="~/theme/assets/bundles/counterup.bundle.js"></script>
+    <script src="~/theme/assets/bundles/knobjs.bundle.js"></script>
+    <script src="~/theme/assets/bundles/c3.bundle.js"></script>
+
+    <script src="~/theme/assets/js/core.js"></script>
+    <script src="~/theme/assets/js/page/project-index.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

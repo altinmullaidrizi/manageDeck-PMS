@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{CAAABA1C-2AF0-4984-824B-1B3C7B9B3BDF}|Default">
+  <MonoDevelop.Ide.ItemProperties.Manage_220Deck_220-_220PMS PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Manage Deck - PMS/Controllers/ProjectsController.cs">
+    <Files>
+      <File FileName="../../../../../usr/local/share/dotnet/sdk/5.0.103/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" Line="247" Column="18" />
+      <File FileName="Manage Deck - PMS/Views/Projects/Create.cshtml" Line="5" Column="2" />
+      <File FileName="Manage Deck - PMS/Models/Project.cs" Line="1" Column="1" />
+      <File FileName="Manage Deck - PMS/Models/Task.cs" />
+      <File FileName="Manage Deck - PMS/Views/Tasks/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Manage Deck - PMS/Startup.cs" Line="70" Column="30" />
+      <File FileName="Manage Deck - PMS/Views/Projects/GetProjectTasks.cshtml" Line="1" Column="1" />
+      <File FileName="Manage Deck - PMS/Controllers/ProjectsController.cs" Line="13" Column="38" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Manage Deck - PMS" expanded="True">
+            <Node name="Manage Deck - PMS" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="ProjectsController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Projects" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

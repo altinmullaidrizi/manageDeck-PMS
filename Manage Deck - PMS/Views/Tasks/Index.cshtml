@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Manage_Deck___PMS.Models.Task>
+
+@{
+    ViewData["Title"] = "Index";
+
+    int index = 0;
+}
+
+<div class="section-body">
+    <div class="container-fluid">
+        <div class="tab-content taskboard">
+            <div class="tab-pane fade show active" id="TaskBoard-list" role="tabpanel">
+                <form asp-action="Index" method="get">
+                    <div class="form-actions no-color">
+                        <p>
+                            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                            <input type="submit" value="Search" class="btn btn-default" />
+                        </p>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-vcenter mb-0 table_custom spacing8 text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th><a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Task</a></th>
+                                        <th><a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">Due Date</a></th>
+                                        <th>Label</th>
+                                        <th>Completed</th>
+                                        <th>Assignee</th>
+                                        <th>Reporter</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var t in Model)
+                                    {
+                                        index++;
+                                        <tr>
+                                            @if (index < 10)
+                                            {
+                                                <td>0 @index </td>
+                                            }
+                                            else
+                                            {
+                                                <td> @index </td>
+                                            }
+                                            <td>
+                                                <h6 class="mb-0">@t.TaskName</h6>
+                                                <span>@t.TaskDescription</span>
+                                            </td>
+
+                                            <td>
+                                                <div class="text-info">@t.DueDate</div>
+                                            </td>
+
+                                            <td>
+                                                <span class="tag tag-blue">@t.Label</span>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => t.Completed)
+                                            </td>
+                                            <td>
+                                                @t.Assignee
+                                            </td>
+                                            <td>
+                                                @t.Reporter
+                                            </td>
+                                            <td>
+                                                <a asp-controller="Tasks" asp-action="Edit" asp-route-id="@t.Id">Edit</a> |
+                                                <a asp-controller="Tasks" asp-action="Delete" asp-route-id="@t.Id">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a asp-controller="Tasks" asp-action="Create">Add New Task</a>
+    </div>
+</div>
+

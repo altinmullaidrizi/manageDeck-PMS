@@ -1,0 +1,57 @@
+﻿@page
+
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    var roles = (List<IdentityRole>)ViewData["roles"];
+}  
+
+<div class="auth">
+    <div class="auth_left">
+        <div class="card">
+            <div class="text-center mb-5">
+                <a class="header-brand" href="index-2.html"><i class="fa fa-soccer-ball-o brand-logo"></i></a>
+            </div>
+            <div class="card-body">
+                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+                    <div class="card-title">Create new account</div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email" class="form-label"></label>
+                        <input asp-for="Input.Email" type="email" class="form-control" placeholder="Enter email">
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password" class="form-label"></label>
+                        <input asp-for="Input.Password" type="password" class="form-control" placeholder="Password">
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.ConfirmPassword" class="form-label"></label>
+                        <input asp-for="Input.ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password">
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Role" class="form-label"></label>
+                        <select asp-for="Input.Role" class="form-control" asp-items='new SelectList(roles,"Id","Name")'>
+                        </select>
+                        <span asp-validation-for="Input.Role" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary btn-block">Create new account</button>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center text-muted">
+                Already have account? <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Sign in</a>
+            </div>
+        </div>
+    </div>
+    <div class="auth_right full_img"></div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}  

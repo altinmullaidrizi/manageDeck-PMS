@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IEnumerable<Manage_Deck___PMS.Models.Project>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="section-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ul class="nav nav-tabs page-header-tab">
+                        <li class="nav-item"><a class="nav-link active">OnGoing</a></li>
+
+                        <li class="nav-item"><a class="nav-link" asp-action="Create">Add</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-body mt-3">
+    <div class="container-fluid">
+        <div class="tab-content">
+
+            <div class="tab-pane fade show active" id="Project-OnGoing" role="tabpanel">
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title"> @Html.DisplayFor(modelItem => item.ProjectName)</h3>
+                                    <div class="card-options">
+                                        <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fa fa-chevron-up"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p> @Html.DisplayFor(modelItem => item.ProjectDescription)</p>
+                                    <div class="row">
+                                        <div class="col-5 py-1"><strong>Created:</strong></div>
+                                        <div class="col-7 py-1"> @Html.DisplayFor(modelItem => item.CreatedTime)</div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
+                                    <a href="/Projects/@item.ProjectName/Tasks">Tasks</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="Project-add" role="tabpanel">
+
+            </div>
+        </div>
+    </div>
+</div>
+
